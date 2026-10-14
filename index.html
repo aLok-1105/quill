@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quill — Markdown Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Quill home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Quill</span>
+      </a>
+
+      <div class="toolbar" role="toolbar" aria-label="View controls">
+        <button type="button" class="tool-btn is-active" data-view="split" aria-pressed="true">
+          Split
+        </button>
+        <button type="button" class="tool-btn" data-view="edit" aria-pressed="false">
+          Edit
+        </button>
+        <button type="button" class="tool-btn" data-view="read" aria-pressed="false">
+          Read
+        </button>
+      </div>
+
+      <div class="actions">
+        <label class="file-btn">
+          Open
+          <input id="file-input" type="file" accept=".md,.markdown,.txt,text/markdown" hidden />
+        </label>
+        <button type="button" id="sample-btn" class="ghost-btn">Sample</button>
+      </div>
+    </header>
+
+    <main class="workspace" data-view="split">
+      <section class="pane editor-pane" aria-label="Markdown editor">
+        <label class="pane-label" for="editor">Markdown</label>
+        <textarea
+          id="editor"
+          spellcheck="false"
+          placeholder="Write or paste markdown…"
+          aria-label="Markdown source"
+        ></textarea>
+      </section>
+
+      <section class="pane preview-pane" aria-label="Rendered preview">
+        <p class="pane-label">Preview</p>
+        <article id="preview" class="preview"></article>
+      </section>
+    </main>
+
+    <div id="drop-overlay" class="drop-overlay" hidden>
+      <p>Drop a <code>.md</code> file to open</p>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
